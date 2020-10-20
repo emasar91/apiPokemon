@@ -1,11 +1,10 @@
-# Sirena Base App
+# Pokemon Api
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Basic structure](#basic-structure)
-- [ToDo's](#todos)
 
 ## Installation
 
@@ -18,12 +17,11 @@ npm i
 Start the app using
 
 ```bash
-npm run local
+npm start
 ```
 
 ---
 
-#### Client App will be mounted on `http://localhost:3000/client`
 
 #### Server App will be mounted on `http://localhost:4032/api`
 
@@ -34,31 +32,16 @@ npm run local
 ```
       server.js
       package.json         // server deps and scripts
+      config/
       src/
           errors/
+          init/
           models/
-          services/
           public/
-          ...
-      config/
-            default.yml
-            ...
-      client/
-          src/
-              App.js
-              index.js
-              App.css
-              ...
-              package.json         // client deps and scripts
-        .../
-        .../
+            api/
+            routers/
+          services/
+            abilitie/
+            pokemon/
+          utils/
 ```
-
-### Todos
-
-- Add docs regarding Integration and their types
-- Add SDK to connect to Sirena API
-- Linter
-- Sections
-  - Deployment
-  - Testing
