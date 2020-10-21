@@ -6,10 +6,9 @@ const config = require('../../init/config')()
 module.exports = {
     getPokemon: async function (ctx) {
         const _id = ctx.params.id
-        if (!_id) {
-            throw new Error('Cannot search pokemon whitout id')
-        }
-        const response = await pokemonServices.getPokemon(_id)
+        const response = typeof (_id) === Number
+            ? await pokemonServices.getPokemonById(_id)
+            : await pokemonServices.getPokemonByName(_id)
         ctx.body = response.body
         ctx.status = response.status
     },

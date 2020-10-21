@@ -15,7 +15,7 @@ const abilitieController = require('../api/abilitie')
 router.get('/pokemon/:id', pokemonController.getPokemon)
 
 // Get all pokemon
-router.get('/pokemons', pokemonController.getAllPokemons)
+router.get('/pokemon', pokemonController.getAllPokemons)
 
 // Get pokemons by type
 router.put('/pokemon/:type', pokemonController.getPokemonsByType)
