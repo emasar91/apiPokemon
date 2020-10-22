@@ -1,7 +1,7 @@
 'use strict';
 
 const pokemonServices = require('../../services/pokemon')
-const config = require('../../init/config')()
+const config = require('../../../config/config')
 
 module.exports = {
     getPokemon: async function (ctx) {

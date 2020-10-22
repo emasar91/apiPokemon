@@ -6,15 +6,15 @@ const PokemonSchema = new mongoose.Schema({
     name: {
         type: String,
         unique: true,
-        required: true
+        // required: true
     },
     weight: {
         type: Number,
-        required: true
+        // required: true
     },
     height: {
         type: Number,
-        require: true
+        // require: true
     },
     types: [{
         type: String,
@@ -89,15 +89,15 @@ const PokemonSchema = new mongoose.Schema({
     ],
     image: {
         type: String,
-        required: true
+        // required: true
     },
     generation: {
         type: String,
-        required: true
+        // required: true
     },
     order: {
         type: Number,
-        required: true
+        // required: true
     }
 })
 
