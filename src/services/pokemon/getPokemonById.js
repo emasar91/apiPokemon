@@ -2,15 +2,15 @@
 
 const Pokemon = require('../../models/Pokemon')
 
-module.exports = async function getPokemon(order) {
+module.exports = async function getPokemonById(_id) {
 
-    const pokemon = await Pokemon.findOne({ order })
+    const pokemon = await Pokemon.findOne({ order: _id })
         .populate('abilitie')
         .lean()
         .exec()
 
     if (!pokemon) {
-        const error = new Error(`Not found Pokemon ${order}`)
+        const error = new Error(`Not found Pokemon ${_id}`)
         error.status = 404
         throw error
     }

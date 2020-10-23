@@ -6,9 +6,9 @@ const config = require('../../../config/config')
 module.exports = {
     getPokemon: async function (ctx) {
         const _id = ctx.params.id
-        const response = typeof (_id) === Number
-            ? await pokemonServices.getPokemonById(_id)
-            : await pokemonServices.getPokemonByName(_id)
+        const response = isNaN(parseInt(_id))
+            ? await pokemonServices.getPokemonByName(_id)
+            : await pokemonServices.getPokemonById(_id)
         ctx.body = response.body
         ctx.status = response.status
     },

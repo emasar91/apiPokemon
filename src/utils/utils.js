@@ -1,19 +1,21 @@
-const { error } = require("winston")
+'use strict';
 
 module.exports = {
     isEmpty: function (array) {
         return array.length === 0
     },
     hasAllStats: function (stats) {
-        if (stats.length !== 7) {
-            const error = new Error('hp, attack, defense, special-attack, special-defense, defense, accuracy and evasion are required')
-            error.status = 400
-            throw error
-        }
         try {
-            const [{ hp }, { attack }, { defense }, { special_attack },
-                { special_defense }, { accuracy }, { evasion }] = stats
 
+            const { hp, attack, defense, special_attack,
+                special_defense, accuracy, evasion } = stats
+
+            if (!hp || !attack || !defense || !special_attack ||
+                !special_defense || !accuracy || !evasion) {
+                const error = new Error('all stats are required (hp, attack, defense, special_attack,special_defense, accuracy, evasion)')
+                error.status = 400
+                throw error
+            }
             if (
                 typeof hp !== 'number' ||
                 typeof attack !== 'number' ||

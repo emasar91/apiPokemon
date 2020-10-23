@@ -2,7 +2,7 @@
 
 const Pokemon = require('../../models/Pokemon')
 
-module.exports = async function getPokemon(name) {
+module.exports = async function getPokemonByName(name) {
 
     const pokemon = await Pokemon.findOne({ name })
         .populate('abilitie')
