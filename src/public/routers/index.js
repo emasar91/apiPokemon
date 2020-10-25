@@ -15,10 +15,10 @@ const abilitieController = require('../api/abilitie')
 router.get('/pokemon/:id', pokemonController.getPokemon)
 
 // Get all pokemon
-router.get('/pokemon', pokemonController.getAllPokemons)
+router.get('/pokemons/all', pokemonController.getAllPokemons)
 
 // Get pokemons by type
-router.put('/pokemon/:type', pokemonController.getPokemonsByType)
+router.get('/pokemon/type/:type', pokemonController.getPokemonsByType)
 
 // Create pokemon
 router.post('/pokemon', pokemonController.createPokemon)
@@ -32,7 +32,7 @@ router.delete('/pokemon/:id', pokemonController.deletePokemon)
 
 //ABILITIES ROUTES
 // Get one abilitie
-router.get('/abilitie/:id', abilitieController.getAbilitie)
+router.get('/abilitie/:name', abilitieController.getAbilitie)
 
 // Get all abilities
 router.get('/abilitie', abilitieController.getAllAbilitie)
@@ -41,9 +41,9 @@ router.get('/abilitie', abilitieController.getAllAbilitie)
 router.post('/abilitie', abilitieController.createAbilitie)
 
 // Update abilitie
-router.put('/abilitie/:id', abilitieController.updateAbilitie)
+router.put('/abilitie/:name', abilitieController.updateAbilitie)
 
 // delete one abilitie
-router.delete('/abilitie/:id', abilitieController.deleteAbilitie)
+router.delete('/abilitie/:name', abilitieController.deleteAbilitie)
 
 module.exports = router;

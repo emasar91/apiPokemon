@@ -5,7 +5,8 @@ const Pokemon = require('../../models/Pokemon')
 module.exports = async function getPokemonById(_id) {
 
     const pokemon = await Pokemon.findOne({ order: _id })
-        .populate('abilitie')
+        .populate('abilities')
+        .populate('evolution', 'image name')
         .lean()
         .exec()
 

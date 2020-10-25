@@ -5,7 +5,8 @@ const Pokemon = require('../../models/Pokemon')
 module.exports = async function getPokemonByName(name) {
 
     const pokemon = await Pokemon.findOne({ name })
-        .populate('abilitie')
+        .populate('abilities')
+        .populate('evolution', 'image name')
         .lean()
         .exec()
 
