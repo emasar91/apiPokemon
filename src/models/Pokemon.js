@@ -45,32 +45,28 @@ const PokemonSchema = new mongoose.Schema(
             unique: true
         },
         types: [{
-            type: {
-
-                type: String,
-                required: true,
-                enum: ['normal',
-                    'fighting',
-                    'flying',
-                    'poison',
-                    'ground',
-                    'rock',
-                    'bug',
-                    'ghost',
-                    'steel',
-                    'fire',
-                    'water',
-                    'grass',
-                    'electric',
-                    'psychic',
-                    'ice',
-                    'dragon',
-                    'dark',
-                    'fairy',
-                    'unknow',
-                    'shadow']
-            },
-            _id: false
+            type: String,
+            required: true,
+            enum: ['normal',
+                'fighting',
+                'flying',
+                'poison',
+                'ground',
+                'rock',
+                'bug',
+                'ghost',
+                'steel',
+                'fire',
+                'water',
+                'grass',
+                'electric',
+                'psychic',
+                'ice',
+                'dragon',
+                'dark',
+                'fairy',
+                'unknow',
+                'shadow']
         }],
         stats:
         {
@@ -108,12 +104,10 @@ const PokemonSchema = new mongoose.Schema(
         {
             type: mongoose.Schema.Types.ObjectId, ref: 'pokemon'
         },
-        abilities: [
-            {
-
+        abilities:
+            [{
                 type: mongoose.Schema.Types.ObjectId, ref: 'abilitie', required: true
-            }
-        ],
+            }]
     },
     {
         collection: 'pokemons',

@@ -24,10 +24,10 @@ router.get('/pokemon/type/:type', pokemonController.getPokemonsByType)
 router.post('/pokemon', pokemonController.createPokemon)
 
 // Update pokemon
-router.put('/pokemon/:id', pokemonController.updatePokemon)
+router.put('/pokemon/:name', pokemonController.updatePokemon)
 
 // delete one pokemon
-router.delete('/pokemon/:id', pokemonController.deletePokemon)
+router.delete('/pokemon/:name', pokemonController.deletePokemon)
 
 
 //ABILITIES ROUTES

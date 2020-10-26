@@ -1,21 +1,23 @@
-'use strict';
+'use strict'
 
 const Pokemon = require('../../models/Pokemon')
 
-module.exports = async function getPokemonByName(name) {
+module.exports = async function deletePokemon(name) {
     const pokemon = await Pokemon.findOne({ name })
-        .populate('abilities')
-        .populate('evolution', 'name image types order')
         .lean()
         .exec()
 
     if (!pokemon) {
-        const error = new Error(`Not found Pokemon ${name}`)
+        const error = new Error(`Not found pokemon "${name}"`)
         error.status = 404
         throw error
     }
+    await Pokemon.deleteOne({ name })
+        .lean()
+        .exec()
+
     return {
-        body: pokemon,
+        body: { status: 'deleted' },
         status: 200
     }
 }

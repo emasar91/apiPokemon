@@ -3,10 +3,9 @@
 const Pokemon = require('../../models/Pokemon')
 
 module.exports = async function getPokemonById(_id) {
-
     const pokemon = await Pokemon.findOne({ order: _id })
         .populate('abilities')
-        .populate('evolution', 'image name')
+        .populate('evolution', 'name image types order')
         .lean()
         .exec()
 

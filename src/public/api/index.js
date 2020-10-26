@@ -47,37 +47,37 @@ module.exports = {
         const admin = ctx.request.body.admin
         const secret = ctx.request.body.secret
         const pokemon = ctx.request.body.pokemon
-        const _id = ctx.params.id
+        const namePokemon = ctx.params.name
         if (!admin || !secret) {
             throw new Error('Cannot create pokemon whitout credentials')
         }
         if (admin !== config.ADMIN || secret !== config.SECRET) {
             throw new Error('Invalids Credential')
         }
-        if (!_id) {
-            throw new Error('Cannot update pokemon whitout id')
+        if (!namePokemon) {
+            throw new Error('Cannot update pokemon whitout name')
         }
         if (!pokemon) {
             throw new Error('Cannot create pokemon whitout data')
         }
-        const response = await pokemonServices.updatePokemon(pokemon, _id)
+        const response = await pokemonServices.updatePokemon(pokemon, namePokemon)
         ctx.body = response.body
         ctx.status = response.status
     },
     deletePokemon: async function (ctx) {
-        const admin = ctx.request.body.admin
-        const secret = ctx.request.body.secret
-        const _id = ctx.params.id
+        const admin = ctx.request.query.admin
+        const secret = ctx.request.query.secret
+        const name = ctx.params.name
         if (!admin || !secret) {
             throw new Error('Cannot create pokemon whitout credentials')
         }
         if (admin !== config.ADMIN || secret !== config.SECRET) {
             throw new Error('Invalids Credential')
         }
-        if (!_id) {
-            throw new Error('Cannot update pokemon whitout id')
+        if (!name) {
+            throw new Error('Cannot delete pokemon whitout name')
         }
-        const response = await pokemonServices.deletePokemon(_id)
+        const response = await pokemonServices.deletePokemon(name)
         ctx.body = response.body
         ctx.status = response.status
     }
